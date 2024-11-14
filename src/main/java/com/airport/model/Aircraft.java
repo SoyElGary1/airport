@@ -2,7 +2,8 @@ package com.airport.model;
 
 public class Aircraft {
 
-    private String id;
+    private static int contador = 0;
+    private int id;
     private String aircraftModel;
     private int totalSeatCapacity;
     private StatusEnum currentStatus;
@@ -12,24 +13,22 @@ public class Aircraft {
 
     }
 
-    public Aircraft(String id,
-                   String aircraftModel,
-                   int totalSeatCapacity,
-                   StatusEnum currentStatus,
-                   int currentLocation) {
-        this.id = id;
+    public Aircraft(
+            String aircraftModel,
+            int totalSeatCapacity,
+            StatusEnum currentStatus,
+            int currentLocation) {
+
+        this.id  = Aircraft.contador++;
         this.aircraftModel = aircraftModel;
         this.totalSeatCapacity = totalSeatCapacity;
         this.currentStatus = currentStatus;
         this.currentLocation = currentLocation;
+
     }
 
-    public String getId() {
+    public int getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getAircraftModel() {
@@ -62,6 +61,10 @@ public class Aircraft {
 
     public void setCurrentLocation(int currentLocation) {
         this.currentLocation = currentLocation;
+    }
+
+    private static int generarId() {
+        return contador++;
     }
 
     @Override

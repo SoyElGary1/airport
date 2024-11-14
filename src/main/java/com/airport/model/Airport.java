@@ -1,12 +1,13 @@
 package com.airport.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Airport {
 
     private int totalCapacity;
-    private static final List<Aircraft> listAircraft = new ArrayList<>();
+    private static final Aircraft[] listAircraft = new Aircraft[100];
     private int numberOfGates;
     private String operatingStatus;
 
@@ -28,7 +29,7 @@ public class Airport {
         this.totalCapacity = totalCapacity;
     }
 
-    public List<Aircraft> getListAircraft() {
+    public static Aircraft[] getListAircraft() {
         return listAircraft;
     }
 
@@ -52,7 +53,7 @@ public class Airport {
     public String toString() {
         return "Airport{" +
                 "totalCapacity=" + totalCapacity +
-                ", listAricraft=" + listAircraft +
+                ", listAricraft=" + Arrays.toString(listAircraft) +
                 ", numberOfGates=" + numberOfGates +
                 ", operatingStatus='" + operatingStatus + '\'' +
                 '}';
